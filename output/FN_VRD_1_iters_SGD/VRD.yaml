@@ -1,0 +1,55 @@
+data:
+  batch_size: 1
+  dataset: VRD
+  dataset_version: null
+  opts: options/data_VRD.yaml
+  use_region: false
+logs:
+  dir_logs: output/FN_VRD_1_iters_SGD
+  model_name: FN_VRD
+model:
+  MPS_iter: 1
+  activation: relu
+  arch: FN_v4s
+  bottleneck: true
+  cls_obj: 1.0
+  cls_pred: 2.0
+  dim_ho: 512
+  dim_hp: 512
+  dim_hr: 512
+  dim_mm: 256
+  dropout: 0.0
+  fusion: PI_v5
+  op: Sum
+  pool_size: 5
+  reg_obj: 0.5
+  rpn_opts: options/RPN/RPN_FN_VRD.yaml
+  use_bias: true
+  use_loss_weight: true
+optim:
+  clip_gradient: true
+  epochs: 15
+  lr: 0.01
+  lr_decay: 0.1
+  lr_decay_epoch: 3
+  momentum: 0.9
+  nesterov: true
+  optimizer: 0
+  weight_decay: 1.0e-05
+opts:
+  dir: data/VRD
+  test:
+    MAX_SIZE: 1000
+    SCALES:
+    - 600
+  train:
+    MAX_SIZE: 1000
+    SCALES:
+    - 450
+    - 500
+    - 550
+    - 600
+    - 600
+    - 650
+    - 700
+    - 750
